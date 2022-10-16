@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import axios from "axios";
 import User from "./User";
 
@@ -18,7 +11,6 @@ function Users() {
     axios("https://jsonplaceholder.typicode.com/users")
       // eslint-disable-next-line react-hooks/rules-of-hooks
       .then((res) => useUsers(res.data))
-      // eslint-disable-next-line react-hooks/rules-of-hooks
       .finally(() => setLoading(false));
   }, []);
   return (
@@ -28,7 +20,7 @@ function Users() {
       <ul>
         {Users.map((user) => (
           <li key={user.id}>
-            <Link to={`/user/${user.id}`}> {user.name} </Link>
+            <Link to={`${url}/${user.id}`}>{user.name}</Link>
           </li>
         ))}
       </ul>
@@ -37,9 +29,7 @@ function Users() {
         <Route exact path={path}>
           <h3>Please select a user.</h3>
         </Route>
-        <Route path={`${path}/:Id`} component={User}>
-          {/* <Topic /> */}
-        </Route>
+        <Route path={`${path}/:id`} component={User} />
       </Switch>
     </div>
   );
