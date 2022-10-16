@@ -9,6 +9,7 @@ import {
 import Home from "./components/Home";
 import About from "./components/About";
 import Users from "./components/Users";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -17,26 +18,17 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink
-                activeStyle="{{ backgroundColor: 'black' color: '#fff' }}"
-                to="/"
-              >
+              <NavLink to="/" exact activeClassName="active">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink
-                activeStyle="{{ backgroundColor: 'black' color: '#fff' }}"
-                to="/about"
-              >
+              <NavLink to="/about" activeClassName="active">
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink
-                activeStyle="{{ backgroundColor: 'black' color: '#fff' }}"
-                to="/users"
-              >
+              <NavLink to="/users" activeClassName="active">
                 Users
               </NavLink>
             </li>
@@ -47,6 +39,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/users" component={Users} />
+          <Route path="*" component={Error404} />
         </Switch>
       </div>
     </Router>

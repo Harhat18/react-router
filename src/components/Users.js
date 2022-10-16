@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 import axios from "axios";
 import User from "./User";
 
@@ -20,7 +20,9 @@ function Users() {
       <ul>
         {Users.map((user) => (
           <li key={user.id}>
-            <Link to={`${url}/${user.id}`}>{user.name}</Link>
+            <NavLink activeClassName="active" to={`${url}/${user.id}`}>
+              {user.name}
+            </NavLink>
           </li>
         ))}
       </ul>
