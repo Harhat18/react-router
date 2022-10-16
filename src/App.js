@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 //pages
 import Home from "./components/Home";
 import About from "./components/About";
@@ -12,13 +17,28 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                activeStyle="{{ backgroundColor: 'black' color: '#fff' }}"
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink
+                activeStyle="{{ backgroundColor: 'black' color: '#fff' }}"
+                to="/about"
+              >
+                About
+              </NavLink>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <NavLink
+                activeStyle="{{ backgroundColor: 'black' color: '#fff' }}"
+                to="/users"
+              >
+                Users
+              </NavLink>
             </li>
           </ul>
         </nav>
